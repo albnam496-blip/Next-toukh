@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Next | كتالوج الملابس</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f3f0;--surface:#fff;--ink:#16202a;--muted:#5f6b76;--line:#d9dedb;--accent:#0f6e66;--accent-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161b;--surface:#18212a;--ink:#eef2f4;--muted:#9aa7b1;--line:#2a3640;--accent:#3cbfb2;--accent-ink:#06201d}}
+:root[data-theme="dark"]{--bg:#10161b;--surface:#18212a;--ink:#eef2f4;--muted:#9aa7b1;--line:#2a3640;--accent:#3cbfb2;--accent-ink:#06201d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"Cairo",Tahoma,Arial,sans-serif;line-height:1.6;background-color:var(--bg);background-image:radial-gradient(900px 380px at 85% -80px,color-mix(in srgb,var(--accent) 16%,transparent),transparent),repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 7%,transparent) 0 2px,transparent 2px 26px);background-attachment:fixed}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+h1.hero{margin:4px 0 12px;padding:26px 16px;border-radius:18px;background:radial-gradient(520px 200px at 80% 0,rgba(60,191,178,.28),transparent),#0d1820;display:flex;justify-content:center}
+.logo{height:56px;width:auto;max-width:100%;fill:none;stroke-linejoin:miter}
+.logo .l{stroke:#f2f6f5;stroke-width:9}
+.logo .c1{stroke:#3cbfb2;stroke-width:9}
+.logo .c2{stroke:#3cbfb2;stroke-width:9;opacity:.45}
+.sub{color:var(--muted);margin:0 0 14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:14px}
+.row{display:grid;gap:6px}
+.lbl{font-weight:600;font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.9rem;padding:4px 12px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{outline:3px solid var(--accent);outline-offset:2px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=search],select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);flex:1;min-width:140px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.count{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 8px;color:var(--muted)}
+.link{background:none;border:0;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pic{aspect-ratio:1;display:grid;place-items:center;transition:background .25s}
+.pic svg{width:62%;height:62%}
+.info{padding:10px;display:grid;gap:4px;flex:1}
+.name{font-weight:600;font-size:.95rem}
+.price{font-weight:800;font-size:1.05rem}
+.dots{display:flex;gap:4px}
+.dot{width:12px;height:12px;border-radius:50%;border:1px solid var(--line)}
+.sizes{color:var(--muted);font-size:.8rem}
+.buy{margin-top:6px;display:block;text-align:center;text-decoration:none;background:var(--accent);color:var(--accent-ink);padding:7px;border-radius:10px;font-weight:600;font-size:.9rem}
+.empty{grid-column:1/-1;text-align:center;padding:40px 10px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="hero"><svg class="logo" viewBox="0 0 250 64" role="img" aria-label="Next"><path class="l" d="M8 56V8l32 48V8"/><path class="l" d="M96 8H66v48h30M66 32h26"/><path class="l" d="M108 8l34 48M142 8l-34 48"/><path class="l" d="M152 8h34M169 8v48"/><path class="c2" d="M200 12l20 20-20 20"/><path class="c1" d="M218 12l20 20-20 20"/></svg></h1>
+  <p class="sub">كتالوج ملابس Next. اختار المقاس واللون والسعر، واطلب على واتساب.</p>
+
+  <div class="panel">
+    <div class="tools">
+      <input type="search" id="q" placeholder="ابحث عن منتج" aria-label="بحث">
+      <select id="sort" aria-label="الترتيب">
+        <option value="">الترتيب الافتراضي</option>
+        <option value="asc">الأقل سعرًا</option>
+        <option value="desc">الأعلى سعرًا</option>
+      </select>
+    </div>
+    <div class="row"><span class="lbl">القسم</span><div class="chips" id="cats"></div></div>
+    <div class="row"><span class="lbl">المقاس</span><div class="chips" id="sizes"></div></div>
+    <div class="row"><span class="lbl">اللون</span><div class="chips" id="colors"></div></div>
+    <div class="row"><span class="lbl">أقصى سعر: <span id="pv"></span> ج.م</span><input type="range" id="price" min="200" max="1500" step="50" value="1500"></div>
+  </div>
+
+  <div class="count"><span id="n"></span><button class="link" id="reset">مسح الفلاتر</button></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+// عدّل الرقم ده برقم الواتساب بتاعك (بصيغة دولية بدون +)
+const WA = "201156666150";
+
+const COLORS = {أسود:"#1b1b1d", أبيض:"#f2f2f0", كحلي:"#1f3a68", بيج:"#cdb592", أخضر:"#3f7d5a", أحمر:"#b3342f"};
+const SIZES = ["S","M","L","XL"];
+const P = [
+ {n:"تيشيرت قطن أساسي",c:"تيشيرتات",p:250,col:["أسود","أبيض","كحلي"],s:["S","M","L","XL"]},
+ {n:"تيشيرت أوفر سايز",c:"تيشيرتات",p:320,col:["بيج","أسود"],s:["M","L","XL"]},
+ {n:"قميص كتان",c:"قمصان",p:480,col:["أبيض","بيج","كحلي"],s:["S","M","L"]},
+ {n:"قميص كاروهات",c:"قمصان",p:420,col:["أحمر","كحلي"],s:["M","L","XL"]},
+ {n:"بنطلون جينز",c:"بناطيل",p:650,col:["كحلي","أسود"],s:["S","M","L","XL"]},
+ {n:"بنطلون قماش",c:"بناطيل",p:580,col:["بيج","أسود","أخضر"],s:["M","L"]},
+ {n:"جاكيت جلد صناعي",c:"جاكيتات",p:1200,col:["أسود"],s:["M","L","XL"]},
+ {n:"جاكيت خفيف",c:"جاكيتات",p:890,col:["أخضر","كحلي"],s:["S","M","L"]},
+ {n:"بولو كلاسيك",c:"بولو",p:420,col:["أحمر","أبيض"],s:["S","M","L"]},
+ {n:"بولو مقلم",c:"بولو",p:520,col:["أسود","أحمر"],s:["S","M","L"]},
+ {n:"تيشيرت بولو",c:"بولو",p:360,col:["أخضر","أبيض","كحلي"],s:["S","M","L","XL"]},
+ {n:"بنطلون رياضي",c:"بناطيل",p:300,col:["أسود","كحلي"],s:["S","M","L","XL"]}
+];
+const SHAPE = {
+ "تيشيرتات":"M20 20l16-8c3 6 21 6 24 0l16 8 8 20-12 5v35H24V45l-12-5z",
+ "قمصان":"M20 20l16-8 14 10 14-10 16 8 8 20-12 5v35H24V45l-12-5zM50 22v58",
+ "جاكيتات":"M18 22l18-10c3 6 25 6 28 0l18 10 6 22-10 4v34H22V48l-10-4zM50 24v58",
+ "بناطيل":"M28 12h44l4 78H55L50 40l-5 50H24z",
+ "بولو":"M20 20l16-8c3 6 21 6 24 0l16 8 8 20-12 5v35H24V45l-12-5zM42 14l8 14 8-14"
+};
+const st = {cat:null,size:null,col:null,max:1500,q:"",sort:""};
+const $ = id => document.getElementById(id);
+const cats = [...new Set(P.map(x=>x.c))];
+
+function chip(wrap,label,key,val){
+  const b=document.createElement("button");b.className="chip";b.textContent=label;b.setAttribute("aria-pressed","false");
+  b.dataset.v=val;b.onclick=()=>{st[key]=st[key]===val?null:val;render()};wrap.appendChild(b);
+}
+cats.forEach(c=>chip($("cats"),c,"cat",c));
+SIZES.forEach(s=>chip($("sizes"),s,"size",s));
+Object.keys(COLORS).forEach(c=>{
+  const b=document.createElement("button");b.className="sw";b.style.background=COLORS[c];b.title=c;b.setAttribute("aria-label",c);
+  b.setAttribute("aria-pressed","false");b.dataset.v=c;b.onclick=()=>{st.col=st.col===c?null:c;render()};$("colors").appendChild(b);
+});
+$("price").oninput=e=>{st.max=+e.target.value;render()};
+$("q").oninput=e=>{st.q=e.target.value.trim();render()};
+$("sort").onchange=e=>{st.sort=e.target.value;render()};
+$("reset").onclick=()=>{Object.assign(st,{cat:null,size:null,col:null,max:1500,q:"",sort:""});$("price").value=1500;$("q").value="";$("sort").value="";render()};
+
+function sync(wrapId,key){
+  [...$(wrapId).children].forEach(b=>b.setAttribute("aria-pressed",String(st[key]===b.dataset.v)));
+}
+function render(){
+  sync("cats","cat");sync("sizes","size");sync("colors","col");
+  $("pv").textContent=st.max;
+  let list=P.filter(x=>(!st.cat||x.c===st.cat)&&(!st.size||x.s.includes(st.size))&&(!st.col||x.col.includes(st.col))&&x.p<=st.max&&(!st.q||x.n.includes(st.q)));
+  if(st.sort)list=[...list].sort((a,b)=>st.sort==="asc"?a.p-b.p:b.p-a.p);
+  $("n").textContent=list.length+" منتج";
+  $("grid").innerHTML=list.length?list.map(x=>{
+    const shown=st.col&&x.col.includes(st.col)?st.col:x.col[0];
+    const size=st.size||x.s[0];
+    const msg=encodeURIComponent("عايز أطلب: "+x.n+" - لون "+shown+" - مقاس "+size);
+    const fill=COLORS[shown];
+    const light=["أبيض","بيج"].includes(shown);
+    return `<article class="card"><div class="pic" style="background:${light?"#c9d2cf":"#e2e8e5"}"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="${SHAPE[x.c]}" fill="${fill}" stroke="${light?"#8b9692":"none"}" stroke-width="1.5"/></svg></div>
+    <div class="info"><div class="name">${x.n}</div><div class="price">${x.p} ج.م</div>
+    <div class="dots">${x.col.map(c=>`<span class="dot" style="background:${COLORS[c]}" title="${c}"></span>`).join("")}</div>
+    <div class="sizes">${x.s.join(" / ")}</div>
+    <a class="buy" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener">اطلب على واتساب</a></div></article>`;
+  }).join(""):`<div class="empty">مفيش منتجات بالفلاتر دي. جرّب تغيّر المقاس أو اللون أو ارفع السعر.</div>`;
+}
+render();
+</script>
+</body>
+</html>
